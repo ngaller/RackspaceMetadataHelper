@@ -38,6 +38,7 @@
             this.txtHeader = new System.Windows.Forms.TextBox();
             this.btnApply = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblProgress = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -129,11 +130,20 @@
             this.progressBar1.Visible = false;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(13, 155);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(0, 13);
+            this.lblProgress.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 224);
+            this.Controls.Add(this.lblProgress);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.txtHeader);
@@ -163,6 +173,7 @@
         private System.Windows.Forms.TextBox txtHeader;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblProgress;
     }
 }
 

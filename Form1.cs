@@ -76,7 +76,11 @@ namespace RackspaceMetadataHelper
                 var count = ApiHelper.ApplyObjectHeader(p.UserName, p.ApiKey, p.ContainerName, p.KeyValue[0],
                     p.KeyValue[1], (int current, int total) =>
                     {
-                        bw.ReportProgress((current * 100)/ total);
+                        bw.ReportProgress((current * 100) / total, new Progress
+                        {
+                            Total = total,
+                            Current = current
+                        });
                     });
                 e.Result = count;
             }
@@ -104,6 +108,9 @@ namespace RackspaceMetadataHelper
         private void Bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
+            int current = ((Progress) e.UserState).Current;
+            int total = ((Progress) e.UserState).Total;
+            lblProgress.Text = $"{current} / {total}";
         }
 
         #endregion
@@ -146,6 +153,11 @@ namespace RackspaceMetadataHelper
             public string UserName;
             public string ApiKey;
             public string[] KeyValue;
+        }
+
+        private class Progress
+        {
+            public int Total, Current;
         }
     }
 }
